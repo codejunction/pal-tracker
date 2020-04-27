@@ -1,0 +1,11 @@
+---
+applications:
+- name: pal-tracker
+  path: src/PalTracker/bin/Release/netcoreapp2.2/publish/
+  random-route: true
+  instances: 1
+  memory: 512M
+  buildpacks:
+    - https://github.com/cloudfoundry/dotnet-core-buildpack/releases/download/v2.3.2/dotnet-core-buildpack-cflinuxfs3-v2.3.2.zip
+  env:
+    WELCOME_MESSAGE: Hello from Cloud Foundry
