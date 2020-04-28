@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: 'microsoft/dotnet:2.2-sdk'
+      - image: "microsoft/dotnet:2.2-sdk"
         environment:
           DEBIAN_FRONTEND: "noninteractive"
     steps:
@@ -22,7 +22,7 @@ jobs:
 
   deployToReview:
     docker:
-      - image: 'microsoft/dotnet:2.2-sdk'
+      - image: "microsoft/dotnet:2.2-sdk"
         environment:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive
@@ -44,11 +44,11 @@ jobs:
           name: Install jq
           command: |
             apt-get -y install jq
-          
-       - run:
+
+      - run:
           name: Install flyway
           command: |
-            curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz   
+            curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz
 
       - run:
           name: Unzip artifacts
@@ -67,7 +67,7 @@ jobs:
 
   deployToProd:
     docker:
-      - image: 'microsoft/dotnet:2.2-sdk'
+      - image: "microsoft/dotnet:2.2-sdk"
         environment:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive
@@ -117,11 +117,11 @@ workflows:
       - build
       - deployToReview:
           requires:
-          - build
+            - build
       - canDeployToProduction:
           type: approval
           requires:
-           - deployToReview
+            - deployToReview
       - deployToProd:
           requires:
             - canDeployToProduction
