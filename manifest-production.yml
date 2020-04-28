@@ -7,6 +7,6 @@ applications:
   buildpacks:
     - https://github.com/cloudfoundry/dotnet-core-buildpack/releases/download/v2.3.2/dotnet-core-buildpack-cflinuxfs3-v2.3.2.zip
   routes:
-    - route: msg-pal-tracker.apps.pikes.pal.pivotal.io
+    - route: msg-pal-tracker-abhishek-prod.cfapps.io
   env:
     WELCOME_MESSAGE: Hello from the production environment
