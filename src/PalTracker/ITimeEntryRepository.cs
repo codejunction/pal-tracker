@@ -4,11 +4,11 @@ namespace PalTracker
     public interface ITimeEntryRepository
     {
         TimeEntry Create(TimeEntry timeEntry);
-        TimeEntry Find(int id);
-        bool Contains(int id);
+        TimeEntry Find(long id);
+        bool Contains(long id);
         IEnumerable<TimeEntry> List();
-        TimeEntry Update(int id, TimeEntry timeEntry);
-        void Delete(int id);
+        TimeEntry Update(long id, TimeEntry timeEntry);
+        void Delete(long id);
 
     }
 }
